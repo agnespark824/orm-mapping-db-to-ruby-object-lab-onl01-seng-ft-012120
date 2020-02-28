@@ -94,9 +94,7 @@ class Student
       WHERE grade = 10 LIMIT ?
     SQL
     
-    DB[:conn].execute(sql, number).map do | row |
-      self.new_from_db(row)
-    end    
+    DB[:conn].execute(sql, number)
   end
   
   def self.first_student_in_grade_10
@@ -106,9 +104,7 @@ class Student
       WHERE grade = 10 LIMIT 1
     SQL
     
-    DB[:conn].execute(sql).map do | row |
-      self.new_from_db(row)
-    end.first    
+    DB[:conn].execute(sql)
   end
   
   def self.all_students_in_grade_X(number)
@@ -118,9 +114,7 @@ class Student
       WHERE grade = ?
     SQL
     
-    DB[:conn].execute(sql).map do | row |
-      self.new_from_db(row)
-    end    
+    DB[:conn].execute(sql, number)
   end
   
 end
