@@ -105,7 +105,7 @@ class Student
     SQL
     
     DB[:conn].execute(sql)
-  end
+  end.first
   
   def self.all_students_in_grade_X(number)
     sql = <<-SQL
